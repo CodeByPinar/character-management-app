@@ -12,6 +12,7 @@ async function bootstrap() {
       'http://127.0.0.1:3100',
       'http://localhost:3004',
       'http://127.0.0.1:3004',
+      'https://character-management-app.vercel.app'
     ],
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
