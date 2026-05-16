@@ -1,0 +1,24 @@
+
+> character-management-frontend@1.0.0 dev
+> next dev -H localhost -p 3100
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3100
+  - Network:      http://[::1]:3100
+  - Environments: .env.local
+
+ ✓ Starting...
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from C:\Users\theco\Downloads\character-management-app\character-management-app\frontend\.next\cache\webpack\client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Ready in 2.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 11s (1976 modules)
+ GET / 200 in 67ms
+ GET / 200 in 25ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 3s (1965 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 3335ms
+ GET /_next/static/chunks/app/LayoutGroupContext.mjs.map 404 in 1813ms
+ GET / 200 in 178ms
+ GET / 200 in 237ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 260ms
+ GET /_next/static/chunks/app/LayoutGroupContext.mjs.map 404 in 88ms

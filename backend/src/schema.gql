@@ -1,0 +1,92 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Character {
+  createdAt: DateTime!
+  description: String!
+  gender: Gender!
+  id: Int!
+  image: String!
+  name: String!
+  status: Status!
+  updatedAt: DateTime!
+}
+
+type CharacterConnection {
+  nodes: [Character!]!
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+input CharacterFilterInput {
+  gender: Gender
+  ids: [Int!]
+  search: String
+  status: Status
+}
+
+input CharacterPaginationInput {
+  skip: Int
+  take: Int
+}
+
+enum CharacterSort {
+  CREATED_AT_ASC
+  CREATED_AT_DESC
+  NAME_ASC
+  NAME_DESC
+}
+
+type CharacterStats {
+  alive: Int!
+  dead: Int!
+  total: Int!
+  unknown: Int!
+}
+
+input CreateCharacterInput {
+  description: String!
+  gender: Gender!
+  image: String!
+  name: String!
+  status: Status!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+enum Gender {
+  FEMALE
+  MALE
+  UNKNOWN
+}
+
+type Mutation {
+  createCharacter(input: CreateCharacterInput!): Character!
+}
+
+type PageInfo {
+  endCursor: String
+  hasNextPage: Boolean!
+  nextSkip: Int
+}
+
+type Query {
+  character(id: Int!): Character
+  characterIds: [Int!]!
+  characterStats(filter: CharacterFilterInput): CharacterStats!
+  characters(filter: CharacterFilterInput, pagination: CharacterPaginationInput, sort: CharacterSort): CharacterConnection!
+}
+
+enum Status {
+  ALIVE
+  DEAD
+  UNKNOWN
+}
+
+type Subscription {
+  characterAdded: Character!
+}

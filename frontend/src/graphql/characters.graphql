@@ -1,0 +1,63 @@
+query GetCharacters(
+  $filter: CharacterFilterInput
+  $pagination: CharacterPaginationInput
+  $sort: CharacterSort
+) {
+  characters(filter: $filter, pagination: $pagination, sort: $sort) {
+    nodes {
+      id
+      image
+      name
+      status
+      gender
+      description
+      createdAt
+      updatedAt
+    }
+    totalCount
+    pageInfo {
+      hasNextPage
+      nextSkip
+      endCursor
+    }
+  }
+}
+
+query GetCharacter($id: Int!) {
+  character(id: $id) {
+    id
+    image
+    name
+    status
+    gender
+    description
+    createdAt
+    updatedAt
+  }
+}
+
+query GetCharacterIds {
+  characterIds
+}
+
+query GetCharacterStats($filter: CharacterFilterInput) {
+  characterStats(filter: $filter) {
+    total
+    alive
+    dead
+    unknown
+  }
+}
+
+subscription CharacterAdded {
+  characterAdded {
+    id
+    image
+    name
+    status
+    gender
+    description
+    createdAt
+    updatedAt
+  }
+}
