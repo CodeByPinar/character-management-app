@@ -3,17 +3,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const corsOrigins = process.env.CORS_ORIGINS
+    ?.split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean) ?? ['http://localhost:3000'];
 
   app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      'http://127.0.0.1:3000',
-      'http://localhost:3100',
-      'http://127.0.0.1:3100',
-      'http://localhost:3004',
-      'http://127.0.0.1:3004',
-      'https://character-management-app.vercel.app'
-    ],
+    origin: corsOrigins,
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,

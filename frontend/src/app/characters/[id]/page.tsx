@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { CharacterDetailView } from '@/components/CharacterDetailView';
-import { graphqlEndpoint } from '@/lib/graphql-client';
+import { serverGraphqlEndpoint } from '@/lib/graphql-client';
 import type { Character } from '@/lib/types';
 
 export const revalidate = 60;
@@ -57,7 +57,7 @@ export default async function CharacterDetailPage({
 }
 
 async function requestGraphQL<T>(query: string, variables?: Record<string, unknown>): Promise<T> {
-  const response = await fetch(graphqlEndpoint, {
+  const response = await fetch(serverGraphqlEndpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query, variables }),

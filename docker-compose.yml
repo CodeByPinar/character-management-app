@@ -5,6 +5,7 @@ services:
     environment:
       DATABASE_URL: file:/data/dev.db
       PORT: 3001
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
     ports:
       - "3001:3001"
     volumes:
@@ -19,6 +20,7 @@ services:
     environment:
       NEXT_PUBLIC_GRAPHQL_URL: http://localhost:3001/graphql
       NEXT_PUBLIC_GRAPHQL_WS_URL: ws://localhost:3001/graphql
+      GRAPHQL_INTERNAL_URL: http://backend:3001/graphql
     depends_on:
       - backend
     ports:

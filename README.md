@@ -28,6 +28,14 @@ docker compose up --build
 Frontend: http://localhost:3000  
 Backend GraphQL: http://localhost:3001/graphql
 
+Seed demo data after the containers are running:
+
+```bash
+docker compose exec backend npm run prisma:seed
+```
+
+The seed script clears existing characters before inserting demo data, so use it only when you want to reset the character list.
+
 ### Local Development
 
 Backend:
